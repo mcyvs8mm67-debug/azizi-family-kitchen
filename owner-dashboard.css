@@ -1,0 +1,48 @@
+/* Afghan Family Kitchen — private order dashboard refresh
+   Scoped to #app so the owner login and public ordering site remain unchanged. */
+#app{max-width:1500px;padding:30px clamp(16px,3vw,44px) 48px;color:#f5f1e8}
+#app .top{padding:15px 18px;margin-bottom:34px;border:1px solid rgba(211,171,119,.18);border-radius:18px;background:rgba(17,25,20,.88);backdrop-filter:blur(14px)}
+#app .brand{gap:14px}
+#app .brand .mark{width:48px;height:48px;background:linear-gradient(145deg,#25372b,#111a14);box-shadow:0 0 28px #c99b6420}
+#app .brand h2{font-size:22px;letter-spacing:-.02em}
+#app .welcome{align-items:center;margin:0 0 24px;padding:4px 2px}
+#app .welcome h1{font-size:clamp(34px,4.2vw,52px);letter-spacing:-.035em;margin:8px 0 5px}
+#app .welcome .muted{font-size:13px}
+#app #refresh{border-radius:999px;padding:13px 20px;background:#c8b58d;color:#172019;box-shadow:0 8px 24px #0003;transition:transform .2s,filter .2s}
+#app #refresh:hover{transform:translateY(-2px);filter:brightness(1.08)}
+#app .stats{gap:15px;margin-bottom:18px}
+#app .stat{position:relative;overflow:hidden;min-height:132px;padding:21px 22px;border-radius:17px;background:linear-gradient(145deg,rgba(31,43,34,.98),rgba(18,26,21,.98));border:1px solid rgba(190,167,126,.17);box-shadow:0 12px 30px #0002}
+#app .stat:after{content:"";position:absolute;width:110px;height:110px;right:-45px;top:-54px;border-radius:50%;border:1px solid #d0a06c20;box-shadow:0 0 0 13px #d0a06c08,0 0 0 27px #d0a06c05}
+#app .stat small{font-size:10px;letter-spacing:.17em;color:#b6b6a7}
+#app .stat strong{font-size:34px;line-height:1.1;margin:15px 0 7px;letter-spacing:-.04em}
+#app .stat em{font-size:11px;color:#c6b28b}
+#app .layout{grid-template-columns:minmax(0,1.8fr) minmax(260px,.72fr);gap:17px;align-items:start}
+#app .panel{padding:23px;border-radius:18px;background:linear-gradient(145deg,rgba(24,34,27,.98),rgba(16,23,19,.98));border:1px solid rgba(190,167,126,.17);box-shadow:0 18px 42px #0002}
+#app .panelhead{margin-bottom:20px}
+#app .panelhead h3{font-size:27px;letter-spacing:-.025em}
+#app #updated{padding:6px 10px;border-radius:999px;background:#a8b68b16;color:#c7d6aa;letter-spacing:.1em;font-size:9px}
+#app .orders{gap:13px}
+#app .order{padding:18px;border-radius:14px;background:linear-gradient(135deg,#1b2820,#131c16);border:1px solid #344538;box-shadow:0 8px 20px #00015;transition:border-color .2s,transform .2s}
+#app .order:hover{border-color:#8b9b70;transform:translateY(-1px)}
+#app .orderhead{align-items:flex-start}
+#app .orderid{font-size:10px;color:#d5ae7d;letter-spacing:.17em;margin-bottom:5px}
+#app .orderhead strong{font-size:17px;letter-spacing:-.01em}
+#app .order p{font-size:12px;line-height:1.6;margin:9px 0;color:#aeb9ad}
+#app .items{padding:12px 14px;margin:12px 0;border-radius:10px;background:#0d1510;font-size:13px;line-height:1.9;color:#e9e6dc}
+#app .status{font-weight:800;letter-spacing:.1em;padding:6px 10px;background:#34442e44;border-color:#71845d;color:#d4e4b9}
+#app .status.new{background:#74552b30;border-color:#b58b51;color:#f0d19d}
+#app .status.cancelled{background:#713b3633}
+#app .orderfoot{padding-top:11px;border-top:1px solid #ffffff0d}
+#app .orderfoot>strong{font-size:19px;color:#e6c99e}
+#app .select{min-width:132px;border-radius:9px;padding:9px 12px;background:#0d1510;border-color:#455747;color:#f4f0e6;cursor:pointer}
+#app .select:focus{outline:2px solid #a8b68b;outline-offset:2px}
+#app .pulse{gap:0}
+#app .pulse div{padding:14px 2px;border-bottom:1px solid #ffffff12;font-size:12px}
+#app .pulse div:first-child{padding-top:3px}
+#app .pulse strong{color:#c9d6aa;font-size:12px;text-align:right}
+#app .note{padding:14px;margin-top:17px;border-radius:10px;background:#0d1510;color:#9eaa9e;font-size:11px}
+#app .empty{padding:42px 20px;border:1px dashed #52634f;border-radius:13px;background:#101912;color:#aab5a7}
+#app .btn.alt{border-radius:999px;padding:10px 17px;background:#1d2a21;border-color:#3a4a3d;color:#e9e5d9}
+#app .btn.alt:hover{background:#28382c}
+@media(max-width:900px){#app .layout{grid-template-columns:1fr}#app .stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){#app{padding:16px 13px 32px}#app .top{padding:12px;margin-bottom:27px}#app .brand h2{font-size:18px}#app .welcome{display:flex;align-items:flex-start;flex-direction:column;gap:15px}#app .welcome h1{font-size:37px}#app #refresh{width:100%}#app .stats{gap:9px}#app .stat{min-height:115px;padding:14px}#app .stat strong{font-size:27px}#app .stat small{font-size:9px}#app .panel{padding:15px}#app .panelhead h3{font-size:23px}#app .order{padding:14px}#app .orderhead{gap:8px}#app .orderhead strong{font-size:15px}#app .select{min-width:120px}}
