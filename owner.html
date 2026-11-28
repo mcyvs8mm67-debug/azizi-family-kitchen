@@ -85,6 +85,25 @@ body:after{height:2px;background:linear-gradient(90deg,transparent,#3a9d90,#d2a4
 @keyframes signal{0%,100%{opacity:.25}50%{opacity:.85}}
 @media(prefers-reduced-motion:reduce){.stat,.order,body:after{animation:none!important;transition:none!important}}
 
+
+:root{--bg:#faf6f0;--panel:#fffdf9;--panel2:#f3ece1;--line:#23181520;--text:#231815;--muted:#725d54;--sage:#8c3b2b;--gold:#b8864b;--red:#a63d31}
+body{background:radial-gradient(ellipse at 10% 0,#f2e7d9 0,transparent 36%),#faf6f0;color:#231815;font-family:"DM Sans",sans-serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.12;background-image:linear-gradient(#2318150c 1px,transparent 1px),linear-gradient(90deg,#2318150c 1px,transparent 1px);background-size:36px 36px}
+.mark{border-color:#8c3b2b;color:#8c3b2b;background:#fffdf9;font:600 19px "Cormorant Garamond",serif}
+.eyebrow{font:10px "Space Mono",monospace;color:#8c3b2b;letter-spacing:.16em}.muted,.gate p,.note,.order p{color:#725d54}
+.gate,.stat,.panel{background:rgba(255,253,249,.88);backdrop-filter:blur(14px);border:1px solid #23181520;border-radius:4px;box-shadow:0 18px 55px #2318150d}
+.gate h1,.welcome h1,.panelhead h3{color:#231815;font-family:"Cormorant Garamond",Georgia,serif}
+.btn{background:#8c3b2b;color:#fffaf4;border-radius:999px;box-shadow:0 8px 20px #8c3b2b20;transition:transform .22s,box-shadow .22s}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px #8c3b2b30}.btn.alt{background:#fffdf9;border:1px solid #23181524;color:#4a352f;box-shadow:none}
+.top{border-color:#23181520}.brand h2{font:600 26px "Cormorant Garamond",serif;color:#231815}
+.stat{background:linear-gradient(145deg,#fffdf9,#f7f0e7);border-color:#23181518;box-shadow:0 10px 30px #23181508}.stat small{color:#806b61;font:9px "Space Mono",monospace;letter-spacing:.1em}.stat strong{color:#231815;font-family:"Cormorant Garamond",serif;font-size:34px}.stat em,.pulse strong{color:#8c3b2b}.stat:hover{border-color:#b8864b88;box-shadow:0 16px 38px #23181513}
+.panel{background:rgba(255,253,249,.9);border-color:#2318151c}.panelhead h3{font-size:28px}
+.order{background:#fffdf9;border:1px solid #23181518;border-radius:4px;box-shadow:0 8px 20px #23181508;transition:transform .25s,border-color .25s,box-shadow .25s}.order:hover{border-color:#b8864b88;box-shadow:0 14px 28px #23181512;transform:translateY(-2px)}
+.orderid{color:#b8864b}.order strong{color:#231815}.status{border-color:#8c9a72;color:#49643b;background:#f1f4e9}.status.new{border-color:#b8864b;color:#8c5d26;background:#fbf0df}.status.cancelled{border-color:#b86a5d;color:#9c4137;background:#fae9e5}
+.select{background:#fffdf9;color:#4a352f;border:1px solid #23181525}.empty{border-color:#c9bcb0;color:#806b61;background:#fffdf9}
+#loginPassword,#newPassword{background:#fffdf9!important;color:#231815!important;border-color:#cbbdb2!important}#loginPassword:focus,#newPassword:focus{border-color:#8c3b2b!important;box-shadow:0 0 0 3px #8c3b2b18}
+.pulse div{border-color:#23181517}
+@media(prefers-reduced-motion:reduce){.stat,.order,body:after{animation:none!important;transition:none!important}}
+
 </style></head>
 <body>
 <div id="gate" class="gate">
