@@ -192,6 +192,69 @@ body:before{content:"";position:fixed;inset:0;z-index:7;pointer-events:none;opac
 @media(max-width:650px){.hud-top.is-scrolled{top:5px;min-height:56px}.hud-dock a[aria-current="location"]{background:#eadbca}}
 @media(prefers-reduced-motion:reduce){.hud-top{transition:none}}
 
+
+/* REFINED RESTAURANT HEADER — editorial, calm, and unmistakably human */
+.hud-top{
+ position:fixed;inset:0 0 auto;left:0;transform:none;width:100%;min-height:88px;
+ padding:12px clamp(20px,5.2vw,82px);display:grid;
+ grid-template-columns:minmax(220px,1fr) auto auto;align-items:center;gap:clamp(18px,3vw,48px);
+ border:0;border-bottom:1px solid #4a30221c;border-radius:0;
+ background:rgba(250,246,240,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+ box-shadow:0 5px 22px rgba(48,29,18,.045);
+}
+.hud-top:before{display:none}
+.hud-brand{gap:11px;text-decoration:none}
+.hud-brand .mark{
+ width:43px;height:43px;flex:0 0 43px;border-radius:50%;
+ border:1px solid #8c3b2b55;background:transparent;color:#8c3b2b;
+ box-shadow:none;font:600 19px "Cormorant Garamond",Georgia,serif;
+}
+.hud-brand strong{font:600 12px "DM Sans",sans-serif;letter-spacing:.13em;color:#2b211c}
+.hud-brand small{font:9px "DM Sans",sans-serif;letter-spacing:.17em;color:#8b766b}
+.hud-open{
+ justify-self:center;display:flex;align-items:center;gap:8px;padding:0;
+ border:0;border-radius:0;background:transparent;box-shadow:none;
+ color:#75685e;font:600 9px "DM Sans",sans-serif;letter-spacing:.12em;
+}
+.hud-open i{width:6px;height:6px;background:#728653;border-radius:50%;box-shadow:none;animation:none}
+.hud-open b{color:#c2a88f;font-weight:400}
+.hud-actions{
+ justify-self:end;display:flex;align-items:center;gap:clamp(14px,2.1vw,30px);
+ padding:0;border:0;border-radius:0;background:transparent;
+}
+.hud-actions a{
+ padding:8px 0;border-radius:0;background:transparent;
+ color:#5f5048;font:500 12px "DM Sans",sans-serif;letter-spacing:.015em;
+}
+.hud-actions a:hover{background:transparent;color:#8c3b2b;transform:none}
+.hud-actions a[aria-current="location"]{background:transparent;color:#8c3b2b;box-shadow:inset 0 -1px #8c3b2b}
+.hud-actions .cartbtn{
+ margin-left:5px;padding:13px 19px;border:0;border-radius:3px;
+ background:#85392b;color:#fffaf4;box-shadow:none;
+ font:600 11px "DM Sans",sans-serif;letter-spacing:.04em;
+}
+.hud-actions .cartbtn:hover{background:#6f2e23;transform:translateY(-1px);box-shadow:0 5px 14px #8c3b2b20}
+.hud-actions .cartbtn span{width:19px;height:19px;margin-left:9px;background:#f6e9dc;color:#783327}
+.hero{padding-top:155px}
+.hud-top.is-scrolled{top:0;min-height:74px;padding-top:8px;padding-bottom:8px;box-shadow:0 4px 18px rgba(48,29,18,.06)}
+@media(max-width:1050px){
+ .hud-top{min-height:78px;grid-template-columns:minmax(200px,1fr) auto;gap:14px;padding-inline:25px}
+ .hud-open{display:none}
+ .hud-actions{grid-column:2;grid-row:1;gap:18px}
+ .hero{padding-top:135px}
+}
+@media(max-width:650px){
+ .hud-top{top:0;width:100%;min-height:66px;padding:8px 14px;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+ .hud-brand{gap:8px}.hud-brand .mark{width:36px;height:36px;flex-basis:36px;font-size:16px}
+ .hud-brand strong{font-size:9px;letter-spacing:.1em}.hud-brand small{font-size:7px;letter-spacing:.12em}
+ .hud-actions{gap:0}.hud-actions a{display:none}
+ .hud-actions .cartbtn{margin:0;padding:11px 12px;font-size:9px}
+ .hud-actions .cartbtn span{width:18px;height:18px}
+ .hero{padding-top:105px}
+ .hud-top.is-scrolled{top:0;min-height:60px;padding-top:6px;padding-bottom:6px}
+}
+@media(prefers-reduced-motion:reduce){.hud-top{transition:none}}
+
 </style></head><body>
 <header class="hud-top"><a class="brand hud-brand" href="#"><span class="mark">AZ</span><span><strong>AZIZI FAMILY KITCHEN</strong><small>TRADITION · FLAVOR · FAMILY</small></span></a><div class="hud-open"><i></i><span>ORDERING OPEN</span><b>·</b><span>PICKUP &amp; DELIVERY</span></div><nav class="hud-actions"><a href="#menu">Menu</a><a href="#story">Our Story</a><a href="#contact">Contact</a><button class="cartbtn" id="openCart">Order Online <span id="count">0</span></button></nav></header>
 <main><div class="hero wrap" id="home"><div class="hero-copy"><div class="eyebrow">AFGHAN CUISINE · MADE WITH CARE</div><h1>A taste of <em>home,</em><br>made to be shared.</h1><p>From fragrant Kabuli pulao to handmade mantu and freshly grilled kebabs, discover the comfort and generous flavor of Afghan cooking.</p><div class="actions"><a class="primary" href="#menu">Explore the menu <span>↗</span></a><button class="secondary" id="heroCart">Start your order</button></div><div class="hero-note"><span>✦</span> FAMILY ROOTED · FRESHLY PREPARED · FULL OF FLAVOR</div></div><div class="heroimg"><img src="https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/kabuli_pulao_afghan_dish.jpg" alt="Close-up of Afghan Kabuli pulao with lamb, carrots and raisins"><div class="hero-tag"><span>HOUSE FAVORITE</span><b>KABULI PULAO</b></div><div class="photo-index">AZFK / 01</div></div></div>
