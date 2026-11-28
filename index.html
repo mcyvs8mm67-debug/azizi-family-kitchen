@@ -33,6 +33,62 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opa
 .heroimg{animation:hud-breathe 5s ease-in-out infinite}
 @media(prefers-reduced-motion:reduce){.dish,.heroimg{animation:none}}
 
+
+/* WHITE HUD UPGRADE — bright glass, precision grid, motion and food-first visuals */
+:root{--paper:#f6faf8;--ink:#172c2b;--muted:#617775;--sage:#187f78;--sage2:#12665f;--gold:#bd8b45;--line:#b8d2cc80;--white:#ffffff}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{position:relative;isolation:isolate;background:radial-gradient(ellipse at 8% 4%,#d9f2ec 0,transparent 34%),radial-gradient(ellipse at 92% 18%,#f9ecd8 0,transparent 29%),linear-gradient(135deg,#f9fcfb,#eef6f3 55%,#f9f7f1);color:var(--ink)}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.34;background-image:linear-gradient(#368f8412 1px,transparent 1px),linear-gradient(90deg,#368f8412 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 92%)}
+body:after{content:"";position:fixed;inset:0 auto 0 0;width:2px;z-index:8;pointer-events:none;background:linear-gradient(transparent,#4ab8a8,#d2a45d,transparent);opacity:.65;animation:hud-scan 8s ease-in-out infinite}
+.topbar{border-color:#a8c8c1a8;backdrop-filter:blur(16px)}
+.mark{border-color:var(--sage);color:var(--sage);box-shadow:0 0 0 5px #16877c0b,0 0 24px #16877c22}
+.brand strong{color:#173b38}.brand small,.nav a{color:#5f7773}
+.nav a{transition:color .2s,transform .2s}.nav a:hover{color:var(--sage);transform:translateY(-2px)}
+.cartbtn,.primary{background:linear-gradient(135deg,#218e83,#12675f);box-shadow:0 10px 24px #167d7226;transition:transform .22s,box-shadow .22s}
+.cartbtn:hover,.primary:hover{transform:translateY(-3px);box-shadow:0 15px 30px #167d7238}
+.hero{position:relative}
+.hero:before{content:"AFK  /  FRESHLY PREPARED";position:absolute;right:0;top:24px;color:#438d8270;font-size:9px;letter-spacing:.25em;font-weight:700}
+.hero h1{color:#173936;text-shadow:0 8px 30px #1a62540b}
+.hero h1 em{color:#b17c38}
+.hero p,.sectionhead p{color:#617775}
+.heroimg{border:1px solid #b7d5cd;box-shadow:0 28px 65px #174d421c,0 0 0 8px #ffffff9c;animation:hud-breathe 5s ease-in-out infinite;transform:translateZ(0)}
+.heroimg:before{content:"";position:absolute;z-index:1;inset:14px;border:1px solid #ffffffa8;border-radius:2px;pointer-events:none;box-shadow:inset 0 0 35px #ffffff24}
+.heroimg:after{background:linear-gradient(transparent 58%,#102d2a9c)}
+.hero-tag{letter-spacing:.23em;text-shadow:0 2px 12px #0008}
+.marquee{background:linear-gradient(90deg,#155f59,#218b80,#155f59);box-shadow:0 8px 24px #176b621b}
+section{position:relative}
+.sectionhead h2{color:#173936}
+.filters .filter{border-color:#b9d2cc;color:#55716c;background:#ffffffa8;transition:all .2s}
+.filters .filter:hover{border-color:var(--sage);transform:translateY(-2px)}
+.filters .filter.active{background:var(--sage);border-color:var(--sage);color:#fff;box-shadow:0 7px 18px #16877c24}
+.menu{perspective:1000px}
+.dish{background:linear-gradient(160deg,#fff,#f8fcfa);border:1px solid #c4dbd5;box-shadow:0 10px 28px #214e4310;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .3s;animation:hud-rise .65s both}
+.dish:nth-child(2n){animation-delay:.08s}.dish:nth-child(3n){animation-delay:.16s}
+.dish:hover{transform:translateY(-8px) rotateX(1deg);border-color:#65b4a7;box-shadow:0 24px 46px #214e4320,0 0 0 3px #56aa9b12}
+.dish img{transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s}.dish:hover img{transform:scale(1.07);filter:saturate(1.12)}
+.dish h3{color:#183a36}.dish p{color:#657a76}.price{color:#16796f}
+.add{background:linear-gradient(135deg,#218e83,#12675f);color:white;box-shadow:0 7px 18px #167d7220;transition:transform .2s,box-shadow .2s}
+.add:hover{transform:translateY(-2px);box-shadow:0 11px 24px #167d7238}
+.story{background:linear-gradient(135deg,#e4f3ee,#f4f8f5);border-block:1px solid #c6ddd6}
+.step{background:#ffffffd9;border:1px solid #c5ddd6;box-shadow:0 12px 30px #275d5010;backdrop-filter:blur(12px)}
+.step b{color:#b17c38}.step h3{color:#173936}.step p{color:#617775}
+.footer{border-color:#bdd5ce}.footer p{color:#637975}.footer a{color:#16796f!important}
+.scrim{background:#102e2ab8;backdrop-filter:blur(8px)}
+.drawer{background:linear-gradient(155deg,#fff,#eff8f5);border-left:1px solid #b8d7cf;box-shadow:-24px 0 70px #173f352b}
+.drawer h2,.cartname{color:#173936}
+.close{border-color:#bfd8d1;color:#315e58;background:#fff}
+.cartline{background:#f5fbf8;border-color:#c5ddd6}.qty button{background:#dff0eb;color:#145e57}
+.totals{border-color:#c2d9d2}.totalrow.final{color:#14786f}
+.form input,.form textarea,.form select{background:#fff;color:#173936;border-color:#bfd8d1}
+.form input:focus,.form textarea:focus,.form select:focus{outline:none;border-color:#2a978b;box-shadow:0 0 0 3px #2a978b1c}
+.form input::placeholder,.form textarea::placeholder{color:#8a9f9a}.form label,.notice{color:#607873}
+.toast{background:#155f59;color:#fff;box-shadow:0 12px 30px #174b4338}
+@keyframes hud-rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes hud-breathe{0%,100%{box-shadow:0 28px 65px #174d421c,0 0 0 8px #ffffff9c}50%{box-shadow:0 30px 75px #174d422c,0 0 0 10px #ffffffc9}}
+@keyframes hud-scan{0%,100%{opacity:.25;transform:translateY(-20vh)}50%{opacity:.8;transform:translateY(20vh)}}
+@media(max-width:700px){.hero:before{display:none}.heroimg{box-shadow:0 18px 40px #174d421c,0 0 0 5px #ffffff9c}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
 </style></head><body>
 <header class="topbar wrap"><a class="brand" href="#"><span class="mark">AF</span><span><strong>AFGHAN FAMILY KITCHEN</strong><small>TRADITION · FLAVOR · FAMILY</small></span></a><nav class="nav"><a href="#menu">Menu</a><a href="#how">How it works</a><a href="#contact">Contact</a><button class="cartbtn" id="openCart">Your order <span id="count">0</span></button></nav></header>
 <main><div class="hero wrap"><div><div class="eyebrow">Afghan comfort food · made with care</div><h1>A little taste of <em>home.</em></h1><p>Fragrant rice, slow-cooked favorites, handmade dumplings and warm bread. Made with care and shared with love.</p><div class="actions"><a class="primary" href="#menu">Explore the menu&nbsp; ↗</a><button class="secondary" id="heroCart">View your order</button></div></div><div class="heroimg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kabuli_Pulao.JPG?width=1400" alt="Afghan Kabuli pulao with fragrant rice, carrots and raisins"><div class="hero-tag">FRESHLY PREPARED · FULL OF FLAVOR</div></div></div>
