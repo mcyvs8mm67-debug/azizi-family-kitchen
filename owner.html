@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#111713"><title>Afghan Family Kitchen | Owner Orders</title>
+<meta name="theme-color" content="#111713"><title>Azizi Family Kitchen | Owner Orders</title>
 <style>
 :root{--bg:#0d120f;--panel:#151d18;--panel2:#1c2820;--line:#2b3a30;--text:#f4f0e6;--muted:#a2ad9f;--sage:#a8b68b;--gold:#d0a06c;--red:#d98173}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 0,#26372a 0,transparent 36%),var(--bg);color:var(--text);font:14px/1.5 Inter,system-ui,sans-serif}
@@ -108,14 +108,14 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opa
 </head>
 <body>
 <div id="gate" class="gate">
-<div class="mark">AF</div><div class="eyebrow" style="margin-top:22px">Afghan Family Kitchen · Owner access</div>
+<div class="mark">AZ</div><div class="eyebrow" style="margin-top:22px">Azizi Family Kitchen · Owner access</div>
 <section id="loginPanel"><h1>Welcome back.</h1><p>Enter your owner password to view incoming orders.</p>
 <form id="loginForm"><input id="loginPassword" type="password" autocomplete="current-password" required placeholder="Owner password" style="width:100%;padding:13px;border-radius:8px;border:1px solid var(--line);background:#0c110e;color:var(--text);margin:8px 0 14px"><button class="btn" type="submit" style="width:100%">Sign in</button></form></section>
 <section id="setupPanel" class="hidden"><h1>Create owner password.</h1><p>Set the password for your private order dashboard.</p>
 <form id="setupForm"><input id="newPassword" type="password" autocomplete="new-password" minlength="12" required placeholder="Create password (12+ characters)" style="width:100%;padding:13px;border-radius:8px;border:1px solid var(--line);background:#0c110e;color:var(--text);margin:8px 0 14px"><button class="btn" type="submit" style="width:100%">Save password</button></form></section>
 <p id="gateMessage" aria-live="polite"></p></div>
 <div id="app" class="shell hidden">
-<header class="top"><div class="brand"><div class="mark">AF</div><div><div class="eyebrow">Afghan Family Kitchen</div><h2>Owner orders</h2></div></div><button class="btn alt" id="lock">Lock dashboard</button></header>
+<header class="top"><div class="brand"><div class="mark">AF</div><div><div class="eyebrow">Azizi Family Kitchen</div><h2>Owner orders</h2></div></div><button class="btn alt" id="lock">Lock dashboard</button></header>
 <section class="welcome"><div><div class="eyebrow">Live operations</div><h1>Order overview</h1><div class="muted" id="today"></div></div><button class="btn" id="refresh">Refresh orders ↻</button></section>
 <section class="stats"><div class="stat"><small>Today's order total</small><strong id="sales">$0.00</strong><em>Submitted orders</em></div><div class="stat"><small>Orders today</small><strong id="todayCount">0</strong><em>All statuses</em></div><div class="stat"><small>Needs attention</small><strong id="pending">0</strong><em>New or accepted</em></div><div class="stat"><small>All orders loaded</small><strong id="allCount">0</strong><em>Latest 100</em></div></section>
 <section class="layout"><div class="panel"><div class="panelhead"><h3>Incoming orders</h3><span class="eyebrow" id="updated">Connecting</span></div><div class="orders" id="orders"><div class="empty">Loading orders…</div></div></div>
