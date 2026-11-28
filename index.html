@@ -178,6 +178,20 @@ body:before{content:"";position:fixed;inset:0;z-index:7;pointer-events:none;opac
 }
 @media(prefers-reduced-motion:reduce){.hud-open i{animation:none}}
 
+
+/* FINAL HUD POLISH — responsive active navigation and refined motion */
+.hud-top{transition:top .28s ease,min-height .28s ease,padding .28s ease,box-shadow .28s ease}
+.hud-top.is-scrolled{top:9px;min-height:66px;padding-top:7px;padding-bottom:7px;box-shadow:0 12px 38px rgba(48,29,18,.14),inset 0 1px 0 #fff}
+.hud-actions a[aria-current="location"],.hud-dock a[aria-current="location"]{background:#eadbca;color:#873b2d}
+.hud-actions a[aria-current="location"]{box-shadow:inset 0 0 0 1px #8c3b2b16}
+.hud-dock a[aria-current="location"]{box-shadow:inset 0 0 0 1px #8c3b2b18}
+.hud-open{box-shadow:inset 0 1px 0 #fff,0 4px 12px #44301a08}
+.hud-open i{flex:0 0 7px}
+.hud-top:focus-within,.hud-dock:focus-within{outline:2px solid #b8864b;outline-offset:3px}
+.hud-actions a:focus-visible,.hud-dock a:focus-visible,.hud-dock button:focus-visible,.hud-actions button:focus-visible{outline:2px solid #b8864b;outline-offset:3px}
+@media(max-width:650px){.hud-top.is-scrolled{top:5px;min-height:56px}.hud-dock a[aria-current="location"]{background:#eadbca}}
+@media(prefers-reduced-motion:reduce){.hud-top{transition:none}}
+
 </style></head><body>
 <header class="hud-top"><a class="brand hud-brand" href="#"><span class="mark">AZ</span><span><strong>AZIZI FAMILY KITCHEN</strong><small>TRADITION · FLAVOR · FAMILY</small></span></a><div class="hud-open"><i></i><span>ORDERING OPEN</span><b>·</b><span>PICKUP &amp; DELIVERY</span></div><nav class="hud-actions"><a href="#menu">Menu</a><a href="#story">Our Story</a><a href="#contact">Contact</a><button class="cartbtn" id="openCart">Order Online <span id="count">0</span></button></nav></header>
 <main><div class="hero wrap" id="home"><div class="hero-copy"><div class="eyebrow">AFGHAN CUISINE · MADE WITH CARE</div><h1>A taste of <em>home,</em><br>made to be shared.</h1><p>From fragrant Kabuli pulao to handmade mantu and freshly grilled kebabs, discover the comfort and generous flavor of Afghan cooking.</p><div class="actions"><a class="primary" href="#menu">Explore the menu <span>↗</span></a><button class="secondary" id="heroCart">Start your order</button></div><div class="hero-note"><span>✦</span> FAMILY ROOTED · FRESHLY PREPARED · FULL OF FLAVOR</div></div><div class="heroimg"><img src="https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/kabuli_pulao_afghan_dish.jpg" alt="Close-up of Afghan Kabuli pulao with lamb, carrots and raisins"><div class="hero-tag"><span>HOUSE FAVORITE</span><b>KABULI PULAO</b></div><div class="photo-index">AZFK / 01</div></div></div>
@@ -217,4 +231,25 @@ $("#closeCart").onclick=()=>openCart(false);$("#scrim").onclick=()=>openCart(fal
 $("#fulfillment").onchange=()=>{$("#addressField").hidden=$("#fulfillment").value!=="delivery";$("#address").required=$("#fulfillment").value==="delivery"};
 $("#orderForm").addEventListener("submit",async e=>{e.preventDefault();if(!Object.keys(cart).length){toast("Add at least one dish first.");return}const type=$("#fulfillment").value;if(type==="delivery"&&$("#address").value.trim().length<8){toast("Please enter your full delivery address.");return}const btn=$("#placeOrder");btn.disabled=true;btn.textContent="Sending your order…";const payload={customer_name:$("#customer").value.trim(),customer_phone:$("#phone").value.trim(),customer_email:$("#email").value.trim()||null,fulfillment_type:type,delivery_address:type==="delivery"?$("#address").value.trim():null,customer_notes:$("#notes").value.trim()||null,items:Object.keys(cart).map(id=>({id:Number(id),quantity:cart[id]}))};try{const res=await fetch(ORDER_URL,{method:"POST",headers:{"Content-Type":"application/json","apikey":SUPABASE_KEY,"Authorization":"Bearer "+SUPABASE_KEY},body:JSON.stringify(payload)});const data=await res.json();if(!res.ok)throw new Error(data.error||"Your order could not be submitted.");const orderNo=data.order?.id?data.order.id.slice(0,8).toUpperCase():"received";toast("Order received! Reference #"+orderNo+". We'll contact you to confirm.");Object.keys(cart).forEach(k=>delete cart[k]);$("#orderForm").reset();$("#addressField").hidden=true;renderCart();setTimeout(()=>openCart(false),900)}catch(err){toast(err.message||"Connection problem. Please try again.");}finally{btn.disabled=false;btn.innerHTML='Place order · <span id="buttonTotal">'+money(total())+'</span>'}});
 $("#year").textContent=new Date().getFullYear();renderMenu();renderCart();
+
+/* HUD interaction: compact on scroll and highlight the section in view */
+(()=>{
+ const top=document.querySelector(".hud-top");
+ const links=[...document.querySelectorAll(".hud-actions a[href^='#'],.hud-dock a[href^='#']")];
+ const sections=[...new Set(links.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean))];
+ const update=()=>top?.classList.toggle("is-scrolled",window.scrollY>36);
+ update();window.addEventListener("scroll",update,{passive:true});
+ if("IntersectionObserver" in window){
+  const observer=new IntersectionObserver(entries=>{
+   const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+   if(!visible)return;
+   links.forEach(a=>{
+    if(a.getAttribute("href")==="#"+visible.target.id)a.setAttribute("aria-current","location");
+    else a.removeAttribute("aria-current");
+   });
+  },{rootMargin:"-22% 0px -58% 0px",threshold:[0,.15,.35,.6]});
+  sections.forEach(s=>observer.observe(s));
+ }
+})();
+
 </script></body></html>
